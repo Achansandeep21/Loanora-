@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+# Loanora - Loan Application Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive React-based loan application website for browsing and applying for personal, car, education, and two-wheeler loans. The app includes a landing page, loan category selection, loan application forms, EMI calculator, login/register flow, and user profile screens.
+
+## Overview
+
+This project is a frontend prototype for a digital lending platform. It is designed to help users:
+
+- explore available loan products
+- compare loan options
+- submit loan application details
+- calculate EMI estimates
+- register or log in to a customer portal
+- view profile and application-related information
+
+## Features
+
+- Modern landing page with loan highlights and benefits
+- Loan category menu with multiple financing options
+- Dynamic loan application forms based on loan type
+- Loan detail carousel with product info and interest/tenure details
+- EMI calculator page for estimating repayment
+- Customer login and registration UI with validation
+- Profile and identity sections for customer data
+- Responsive styling for mobile and desktop layouts
+
+## Supported Loan Types
+
+- Personal Loan
+- Car Loan
+- Education Loan
+- Two Wheeler Loan
+
+## Tech Stack
+
+- React
+- React Router DOM
+- HTML/CSS
+- JavaScript
+- Create React App
+
+## Project Structure
+
+```text
+loan-website/
+├── public/
+├── src/
+│   ├── App.js
+│   ├── CarLoan.js
+│   ├── EmiCalculator.js
+│   ├── HomePage.jsx
+│   ├── Identity.js
+│   ├── LoanDetails.js
+│   ├── LoanMenu.js
+│   ├── Login.js
+│   ├── Navbar.js
+│   ├── Profile.js
+│   ├── information.js
+│   ├── images/
+│   ├── index.js
+│   ├── main.css
+│   └── ...
+├── package.json
+├── README.md
+└── package-lock.json
+```
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js (v18 or newer recommended)
+- npm
+
+### Installation
+
+```bash
+npm install
+```
+
+### Run the App
+
+```bash
+npm start
+```
+
+The application will run in development mode at:
+
+```text
+http://localhost:3000
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
+```bash
+npm start
+npm test
+npm run build
+```
 
-### `npm start`
+### Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `npm start` — runs the React development server
+- `npm test` — launches the test runner
+- `npm run build` — creates an optimized production build in the `build` directory
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Key Routes
 
-### `npm test`
+| Route | Description |
+| --- | --- |
+| `/` | Home/landing page |
+| `/login` | Login and registration screen |
+| `/loan-menu` | Loan options menu |
+| `/loan-details/:loanType` | Dynamic loan application page |
+| `/emi-calculator` | Loan EMI estimation page |
+| `/profile` | User profile screen |
+| `/identity` | Identity-related section |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Notes
 
-### `npm run build`
+- This project currently works as a frontend UI prototype.
+- User registration/login validation is implemented on the client side using browser storage (`sessionStorage`).
+- No real backend API, database, or payment integration is connected yet.
+- The app can be extended with backend authentication, real loan APIs, and database persistence.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Future Improvements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- integrate backend authentication and database
+- add API-driven loan processing
+- add PDF/approval management
+- add admin dashboard
+- connect EMI calculations to backend rules
+- improve accessibility and performance
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is for educational/demo purposes and is not intended for production financial processing without legal and compliance review.
