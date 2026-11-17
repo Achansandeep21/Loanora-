@@ -1,0 +1,191 @@
+    
+/* MAIN PAGE */
+
+.emi-page {
+  min-height: 100vh;
+  background: #f4f6fb;
+  font-family: Arial, sans-serif;
+}
+
+/* MAIN CONTAINER */
+
+.emi-container {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.emi-container h1 {
+  text-align: center;
+  color: #172554;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.emi-container > p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+/* EMI CARD */
+
+.emi-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.emi-card h2 {
+  color: #172554;
+  margin-bottom: 20px;
+}
+
+/* FORM FIELDS */
+
+.emi-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.emi-field label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.emi-field input,
+.emi-field select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.emi-field input:focus,
+.emi-field select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+.emi-field input[readonly] {
+  background: #f1f5f9;
+  color: #555;
+}
+
+/* EMI RESULTS */
+
+.emi-results {
+  margin-top: 30px;
+  padding: 22px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.emi-results h2 {
+  text-align: center;
+  color: #172554;
+  margin-bottom: 20px;
+}
+
+.emi-results p {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+  color: #444;
+  font-size: 15px;
+}
+
+/* FINAL EMI DISPLAY */
+
+.emi-final {
+  margin-top: 25px;
+  padding: 22px;
+  background: #172554;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.emi-final h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.emi-final h2 {
+  color: #ffffff;
+  font-size: 30px;
+  margin: 0;
+  font-weight: bold;
+}
+.emi-proceed {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.emi-proceed:hover {
+  background: #15803d;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+
+  .emi-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .emi-card {
+    padding: 20px;
+  }
+
+  .emi-container h1 {
+    font-size: 25px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .emi-container {
+    padding: 10px;
+  }
+
+  .emi-card {
+    padding: 16px;
+  }
+
+  .emi-results {
+    padding: 15px;
+  }
+
+  .emi-results p {
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .emi-final h2 {
+    font-size: 25px;
+  }
+
+}

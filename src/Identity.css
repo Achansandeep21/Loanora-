@@ -1,0 +1,138 @@
+
+/* MAIN PAGE */
+
+.identity-page {
+  min-height: 100vh;
+  background: #f4f6fb;
+  font-family: Arial, sans-serif;
+}
+
+.identity-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.identity-container h1 {
+  text-align: center;
+  color: #172554;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.identity-description {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* CARDS */
+
+.identity-card {
+  background: #fff;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+
+.identity-card h2 {
+  color: #172554;
+  font-size: 21px;
+  margin-bottom: 20px;
+}
+
+/* LOAN SUMMARY */
+
+.identity-card p {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+/* INPUT FIELDS */
+
+.identity-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.identity-field label {
+  font-weight: 600;
+  margin-bottom: 9px;
+  color: #333;
+}
+
+.identity-field input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.identity-field input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* VALIDATION MESSAGES */
+
+.identity-error {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 7px;
+}
+
+.identity-success {
+  color: #15803d;
+  font-size: 13px;
+  margin-top: 7px;
+}
+
+/* SUBMIT BUTTON */
+
+.identity-submit {
+  width: 100%;
+  padding: 15px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.identity-submit:hover {
+  background: #1d4ed8;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+  .identity-container {
+    padding: 12px;
+    margin: 20px auto;
+  }
+
+  .identity-card {
+    padding: 18px;
+  }
+
+  .identity-container h1 {
+    font-size: 24px;
+  }
+
+  .identity-card p {
+    font-size: 13px;
+  }
+
+}
