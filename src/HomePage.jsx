@@ -1,10 +1,11 @@
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./HomePage.css";
 import Navbar from "./Navbar";
 
 const HomePage = () => {
   const [activeFaq, setActiveFaq] = useState(null);
+  const { hash } = useLocation();
 
   const features = [
     { icon: "₹", title: "Loan Amount", value: "₹50,000 - ₹25 Lakhs" },
@@ -54,26 +55,22 @@ const HomePage = () => {
         "Prepayment and foreclosure options depend on the lender's terms and conditions."
     },
   ];
-const handleHashScroll = () => {
-  const id = window.location.hash.substring(1);
-  if (id) {
-    setTimeout(() => {
-      const section = document.getElementById(id);
-      if (section) {
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
-    }, 300);
-  }
-};
+  useEffect(() => {
+    if (!hash) return undefined;
+
+    const sectionId = decodeURIComponent(hash.slice(1));
+    const timeoutId = window.setTimeout(() => {
+      document.getElementById(sectionId)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [hash]);
+
   return (
-    <div className="loan-page" ref={(element) => {
-    if (element) {
-      handleHashScroll();
-    }
-  }}>
+    <div className="loan-page">
       <Navbar />
       {/* Hero */}
       <section className="loan-hero" id="home">
@@ -163,7 +160,7 @@ const handleHashScroll = () => {
       </section>
 
       {/* Eligibility */}
-      <section className="eligibility-section" id="eligibility">
+      <section className="eligibility-section" id="Eligibility">
         <div className="eligibility-content">
           <span className="eyebrow">CHECK BEFORE APPLYING</span>
           <h2>Personal Loan Eligibility</h2>

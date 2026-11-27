@@ -1,16 +1,36 @@
 
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import { logout } from "./redux/authSlice";
 
 function Navbar() {
-
-  const userData = JSON.parse(
-    sessionStorage.getItem("userData") || "null"
-  );
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isLoggedIn, token } = useSelector((state) => state.auth);
+  const isAuthenticated = isLoggedIn && Boolean(token);
 
   const handleLogout = () => {
-    sessionStorage.removeItem("userData");
-    window.location.href = "/";
+    dispatch(logout());
+    navigate("/login", { replace: true });
+  };
+
+  const handleHomeClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleSectionClick = (event, sectionId) => {
+    if (
+      window.location.pathname === "/" &&
+      window.location.hash === `#${sectionId}`
+    ) {
+      event.preventDefault();
+      document.getElementById(sectionId)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   };
 
   return (
@@ -23,43 +43,55 @@ function Navbar() {
       <div className="row container">
         <div className="loan-nav-links loan-nav-actions">
 
-          {userData ? (
+          {/* Always Visible */}
+          <Link to="/" onClick={handleHomeClick}>Home</Link>
+          <Link to="/loan-menu">Loan Menu</Link>
+
+          {isAuthenticated ? (
             <>
-              {/* After Login / Registration */}
+              {/* After Login */}
 
-              <a href="/loan-menu">Loan Menu</a>
-              <a href="/profile">My Profile</a>
-              <a href="/my-applications">My Applications</a>
-              <a href="/#contact">Contact</a>
-              <a href="/" className="login-btn"
-              onClick={(e) => {
-              e.preventDefault();
-              sessionStorage.removeItem("userData");
-              window.location.href = "/";
-              }}
+              <Link to="/profile">My Profile</Link>
+
+              <Link
+                to="/login"
+                className="login-btn"
+                onClick={(event) => {
+                  event.preventDefault();
+                  handleLogout();
+                }}
               >
-              Logout
-              </a>
-
+                Logout
+              </Link>
             </>
           ) : (
             <>
-              {/* Before Login / Registration */}
+              {/* Before Login */}
 
-              <a href="/">Home</a>
-              <a href="/loan-menu">Loan Menu</a>
-              <a href="/#benefits">Benefits</a>
-              <a href="/#eligibility">Eligibility</a>
-              <a href="/#contact">Contact</a>
+              <Link
+                to="/#benefits"
+                onClick={(event) => handleSectionClick(event, "benefits")}
+              >
+                Benefits
+              </Link>
 
-              <a href="/login" className="login-btn">
+              <Link
+                to="/#Eligibility"
+                onClick={(event) => handleSectionClick(event, "Eligibility")}
+              >
+                Eligibility
+              </Link>
+
+              <Link
+                to="/#contact"
+                onClick={(event) => handleSectionClick(event, "contact")}
+              >
+                Contact
+              </Link>
+
+              <Link to="/login" className="login-btn apply-btn">
                 Login
-              </a>
-
-              <a href="/loan-menu" className="apply-btn">
-                Apply Now
-              </a>
-
+              </Link>
             </>
           )}
 

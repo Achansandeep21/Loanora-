@@ -1,12 +1,14 @@
 
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Navbar from "./Navbar";
 import "./LoanMenu.css";
 
 function LoanMenu() {
 
   const navigate = useNavigate();
+  const { isLoggedIn, token } = useSelector((state) => state.auth);
 
   const loans = [
     {
@@ -35,12 +37,37 @@ function LoanMenu() {
     }
   ];
 
+
+  // CHECK LOGIN BEFORE OPENING LOAN DETAILS
+  const handleLoanClick = (loanId) => {
+    if (isLoggedIn && token) {
+
+      // User already logged in
+      sessionStorage.removeItem("selectedLoan");
+
+      navigate(`/loan-details/${loanId}`);
+
+    } else {
+
+      // Save selected loan
+      sessionStorage.setItem("selectedLoan", loanId);
+
+      // Redirect to login page
+      navigate("/login");
+
+    }
+
+  };
+
+
   return (
+
     <div className="loan-page">
 
       <Navbar />
 
       <h1>Explore Our Loans</h1>
+
 
       <div className="loan-grid">
 
@@ -55,9 +82,7 @@ function LoanMenu() {
             <p>{item.description}</p>
 
             <button
-              onClick={() =>
-                navigate(`/loan-details/${item.id}`)
-              }
+              onClick={() => handleLoanClick(item.id)}
             >
               View Details
             </button>
@@ -69,7 +94,9 @@ function LoanMenu() {
       </div>
 
     </div>
+
   );
+
 }
 
 export default LoanMenu;
